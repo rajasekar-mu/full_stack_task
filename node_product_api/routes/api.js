@@ -21,7 +21,7 @@ router.post('/create-product', [check('username').isLength({min:3,max:30}).withM
 	  if (!errors.isEmpty()) {
 	    return res.status(422).json({ errors: errors.array() });
 	  }
-	  apimodel.InsertShops(req.db,{name: req.body.username,shop_name: req.body.shop_name,status: req.body.status,created_date:new Date()}, (result) => {
+	  apimodel.InsertShops(req.db,{username: req.body.username,shop_name: req.body.shop_name,status: req.body.status,created_date:new Date()}, (result) => {
 	  	//console.log(result,'------>');
 	  	return res.json(result);
 	  });
